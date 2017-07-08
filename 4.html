@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>tab左右切换</title>
+    <script src="//code.jquery.com/jquery-2.2.4.min.js"></script>
+    <style>
+        body,html{
+            margin:0;
+            padding:0;
+            font-family: "宋体",Arial, Helvetica, sans-serif;
+            font-size: 14px;
+            margin: 8px;
+        }
+        ul,li{
+            margin:0;
+            padding:0
+        }
+        ul{
+            list-style: none
+        }
+        a{
+            text-decoration: none;
+            color:#333
+        }
+        .clear::after {
+            content: "";
+            display: block;
+            clear: both;
+            line-height: 0;
+            font-size: 0;
+        }
+        .tab-title li{
+            border-top:1px solid #ccc;
+            border-left:1px solid #ccc;
+            width:250px;
+            float:left;
+            padding: 10px 0;
+            text-align: center;
+            cursor: pointer
+        }
+        .tab-title li.active{
+            background: #eee;
+        }
+        .tab-title li:last-child{
+            border-right:1px solid #ccc;
+        }
+        .tab-conk{
+            width:754px;
+            overflow: hidden
+        }
+        .tab-content{
+            width:5000px;
+            position: relative;
+           
+        }
+        .tab-content li{
+            border:1px solid #ccc;
+            height:200px;
+            width:752px;
+            line-height: 50px;
+            text-align: center;
+            float: left;
+        }
+        .tab-content li:nth-child(1){
+            background:red
+        }
+        .tab-content li:nth-child(2){
+            background:blue
+        }
+        .tab-content li:nth-child(3){
+            background:yellow
+        }
+        </style>
+        <script>
+            $(function(){
+                $('.tab-title li').click(function(){
+                    var $this = $(this)
+                    var index = $this.index()
+                    var liWidth = $('.tab-content li').width() + 2
+                    $this.addClass('active').siblings().removeClass('active')
+                    $this.parents().find('.tab-content').animate({left: -liWidth*index})
+                })
+            })
+        </script>
+</head>
+<body>
+    <div class="tab-box">
+        <ul class="tab-title clear">
+            <li class="active"><a href="javascript:void(0)">tab1</a></li>
+            <li><a href="javascript:void(0)">tab2</a></li>
+            <li><a href="javascript:void(0)">tab3</a></li>
+        </ul>
+        <div class="tab-conk">
+            <ul class="tab-content clear">
+                <li class="active">内容1</li>
+                <li>内容2</li>
+                <li>内容3</li>
+            </ul>
+        </div>
+    </div>
+    
+</body>
+</html>

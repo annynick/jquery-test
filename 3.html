@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="//code.jquery.com/jquery-2.2.4.min.js"></script>
+    <title>tab</title>
+    <style>
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            font-family: "宋体", Arial, Helvetica, sans-serif;
+            font-size: 14px;
+            margin: 8px;
+        }
+
+        ul,
+        li {
+            margin: 0;
+            padding: 0
+        }
+
+        ul {
+            list-style: none
+        }
+
+        a {
+            text-decoration: none;
+        }
+        .model{
+            margin-bottom:20px;
+        }
+        .model h1{
+            font-size:30px;
+            line-height: 40px;
+        }
+
+        .clear::after {
+            content: "";
+            display: block;
+            clear: both;
+            line-height: 0;
+            font-size: 0;
+        }
+        .content-k{
+            width:776px;
+        }
+        .content {
+            margin-left:-20px;
+        }
+
+        .content li {
+            width: 200px;
+            border: 1px solid #eee;
+            float: left;
+            margin-bottom: 20px;
+            margin-left: 20px;
+            padding: 10px 20px;
+            text-align: center;
+            position: relative;
+            background: #fff;
+        }
+
+        .content li img {
+            width: 130px;
+            height: 130px;
+        }
+
+        .content li p {
+            height: 36px;
+            overflow: hidden;
+            line-height: 18px;
+            text-align: left;
+        }
+
+        .content li span {
+            color: #c81623;
+            text-align: left;
+            display: block;
+        }
+
+        .content li .cover {
+            position: absolute;
+            background: rgba(0, 0, 0, .3);
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            display: none;
+        }
+
+        .content li.active .cover {
+            display: block;
+        }
+
+        .cover .btn {
+            padding: 10px 15px;
+            background: #fff;
+            border: 1px solid #c81623;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 5px;
+            color: #c81623
+        }
+        .model .add{
+            padding: 10px 15px;
+            border:1px solid #c81623;
+            color:#c81623;
+            border-radius: 2px;
+        }
+       
+    </style>
+    <script>
+        $(function () {   
+
+            var products = [
+                {
+                    img: 'http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg',
+                    name: '珂兰 黄金手 猴哥款',
+                    price: '￥405.00'
+                },{
+                    img: 'http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg',
+                    name: '珂兰 黄金转运珠 猴哥款',
+                    price: '￥100.00'
+                },{
+                    img: 'http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg',
+                    name: '珂兰 黄金手链 3D猴哥款',
+                    price: '￥45.00'
+                }
+            ];
+            $('.add').click(function(){
+                $.each(products,function(index,item){
+                    var html = getListHtml(item)
+                    $('.content').append(html)
+                })
+            })
+          
+            function getListHtml(item){
+                var html=''
+                    html += '<li>'
+                    html += '<div class="cover"><a href="" class="btn">立即抢购</a></div>'
+                    html += '<img src="'+item.img+'" alt="">'
+                    html += '<p>'+item.name+'</p>'
+                    html += '<span>'+item.price+'</span>'
+                    html += '</li>'
+                    return html
+            }
+        
+            $('.content').on('mouseover','li',function () {
+                $(this).addClass('active')
+            })
+            $('.content').on('mouseout','li',function () {
+                $(this).removeClass('active')
+            })
+        })
+
+    </script>
+</head>
+
+<body>
+    <div class="model">
+       <h1>珠宝首饰</h1>
+        <div class="content-k">
+            <ul class="content active clear">
+                <li>
+                    <div class="cover"><a href="" class="btn">立即抢购</a></div>
+                    <img src="https://ooo.0o0.ooo/2017/07/08/596052a71dfe9.jpg" alt="项链">
+                    <p>爱喜珠宝 黄金吊坠 3d硬足金 纯金吊坠 米奇米妮项坠</p>
+                    <span>￥699.00</span>
+                </li>
+                <li>
+                    <div class="cover"><a href="" class="btn">立即抢购</a></div>
+                    <img src="https://ooo.0o0.ooo/2017/07/08/596052a71dfe9.jpg" alt="项链">
+                    <p>爱喜珠宝 黄金吊坠 3d硬足金 纯金吊坠 米奇米妮项坠</p>
+                    <span>￥699.00</span>
+                </li>
+                <li>
+                    <div class="cover"><a href="" class="btn">立即抢购</a></div>
+                    <img src="https://ooo.0o0.ooo/2017/07/08/596052a71dfe9.jpg" alt="项链">
+                    <p>爱喜珠宝 黄金吊坠 3d硬足金 纯金吊坠 米奇米妮项坠</p>
+                    <span>￥699.00</span>
+                </li>
+                <li>
+                    <div class="cover"><a href="" class="btn">立即抢购</a></div>
+                    <img src="https://ooo.0o0.ooo/2017/07/08/596052a71dfe9.jpg" alt="项链">
+                    <p>爱喜珠宝 黄金吊坠 3d硬足金 纯金吊坠 米奇米妮项坠</p>
+                    <span>￥699.00</span>
+
+                </li>
+                <li>
+                    <div class="cover"><a href="" class="btn">立即抢购</a></div>
+                    <img src="https://ooo.0o0.ooo/2017/07/08/596052a71dfe9.jpg" alt="项链">
+                    <p>爱喜珠宝 黄金吊坠 3d硬足金 纯金吊坠 米奇米妮项坠</p>
+                    <span>￥699.00</span>
+                </li>
+                <li>
+                    <div class="cover"><a href="" class="btn">立即抢购</a></div>
+                    <img src="https://ooo.0o0.ooo/2017/07/08/596052a71dfe9.jpg" alt="项链">
+                    <p>爱喜珠宝 黄金吊坠 3d硬足金 纯金吊坠 米奇米妮项坠</p>
+                    <span>￥699.00</span>
+                </li>
+            </ul>
+           <a href="javascript:void(0)" class="add">添加</a>
+        </div>
+       
+    </div>
+
+</body>
+
+</html>

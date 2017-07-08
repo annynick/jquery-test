@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="//code.jquery.com/jquery-2.2.4.min.js"></script>
+    <title>侧边导航</title>
+    <style>
+        body,html{
+            margin:0;
+            padding:0;
+            font-family: "宋体",Arial, Helvetica, sans-serif;
+            font-size: 14px;
+            margin: 8px;
+        }
+        ul,li{
+            margin:0;
+            padding:0
+        }
+        ul{
+            list-style: none
+        }
+        a{
+            text-decoration: none;
+        }
+        .nav-bar{
+            background:#c7171e;
+            width: 200px;
+        }
+        .nav-bar li.category{
+            position: relative;
+            margin:0 10px;
+            line-height: 40px;
+            border-bottom:1px dotted #de272e
+        }
+        .nav-bar li.category .category-title{
+            color: #fff
+        }
+        .nav-bar li.category span{
+            color:#fff;
+            float: right;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .nav-bar li.category.hover .child-panel{
+            display:block;
+        }
+        .nav-bar li.category .child-panel{
+            position: absolute;
+            left:190px;
+            top:0;
+            width:210px;
+            border: 1px solid #ccc;
+            display: none;
+        }
+        .child-panel li a{
+            color:#333;
+        }
+        .child-panel li{
+            width:50px;
+            margin:8px 20px;
+            float:left;
+            line-height: 22px;
+        }
+        .nav-bar li.category:last-child{
+            border:0
+        }
+    </style>
+    <script>
+        $(function(){
+            $('.nav-bar .category').mouseover(function(){
+                $(this).addClass('hover');
+            })
+            $('.nav-bar .category').mouseout(function(){
+                $(this).removeClass('hover')
+            })
+        })
+    </script>
+</head>
+<body>
+<div class="nav">
+    <ul class="nav-bar">
+        <li class="category">
+            <a href="" class="category-title">珠宝玉器</a>
+            <span>></span>
+            <ul class="child-panel">
+                <li><a href="">翡翠</a></li>
+                <li><a href="">玉石</a></li>
+                <li><a href="">宝石</a></li>
+                <li><a href="">水晶</a></li>
+                <li><a href="">玛瑙</a></li>
+                <li><a href="">珍珠</a></li>
+                <li><a href="">钻石</a></li>
+                <li><a href="">琥珀</a></li>
+                <li><a href="">翡翠</a></li>
+                <li><a href="">玉石</a></li>
+            </ul>
+        </li>
+        <li class="category">
+            <a href="" class="category-title">珠宝玉器</a>
+            <span>></span>
+            <ul class="child-panel">
+                <li><a href="">玛瑙</a></li>
+                <li><a href="">珍珠</a></li>
+                <li><a href="">钻石</a></li>
+                <li><a href="">琥珀</a></li>
+                <li><a href="">翡翠</a></li>
+                <li><a href="">玉石</a></li>
+            </ul>
+        </li>
+        <li class="category">
+            <a href="" class="category-title">珠宝玉器</a>
+            <span>></span>
+            <ul class="child-panel">
+                <li><a href="">玛瑙</a></li>
+                <li><a href="">珍珠</a></li>
+                <li><a href="">钻石</a></li>
+                <li><a href="">琥珀</a></li>
+            </ul>
+        </li>
+        <li class="category">
+            <a href="" class="category-title">珠宝玉器</a>
+            <span>></span>
+            <ul class="child-panel">
+                <li><a href="">玛瑙</a></li>
+                <li><a href="">珍珠</a></li>
+                <li><a href="">钻石</a></li>
+                <li><a href="">琥珀</a></li>
+            </ul>
+        </li>
+        <li class="category">
+            <a href="" class="category-title">珠宝玉器</a>
+            <span>></span>
+            <ul class="child-panel">
+                <li><a href="">翡翠</a></li>
+                <li><a href="">玉石</a></li>
+            </ul>
+        </li>
+    </ul>
+</div>
+
+</body>
+</html>

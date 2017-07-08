@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="//code.jquery.com/jquery-2.2.4.min.js"></script>
+    <title>tab</title>
+    <style>
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            font-family: "宋体", Arial, Helvetica, sans-serif;
+            font-size: 14px;
+            margin: 8px;
+        }
+
+        ul,
+        li {
+            margin: 0;
+            padding: 0
+        }
+
+        ul {
+            list-style: none
+        }
+
+        a {
+            text-decoration: none;
+        }
+        .model{
+            margin-bottom:20px;
+        }
+        ul.tab {
+            border: 1px solid #ccc;
+            border-radius: 5px 5px 0 0;
+            float: left;
+            border-bottom:0;
+        }
+
+        ul.tab li {
+            float: left;
+            display: block;
+            padding: 10px 0;
+        }
+
+        ul.tab li a {
+            color: #333;
+            padding: 0 10px;
+            border-right: 1px solid #ccc;
+        }
+
+        ul.tab li:last-child a {
+            border-right: 0;
+        }
+
+        ul.tab li.active {
+            background: #ccc;
+        }
+
+        ul.tab li.active a {
+            color: #c81623
+        }
+
+        .clear::after {
+            content: "";
+            display: block;
+            clear: both;
+            line-height: 0;
+            font-size: 0;
+        }
+         .content-k{
+            border: 1px solid #ccc;
+            width: 766px;
+        }
+        .content {
+            margin-top: -20px;
+            margin-left:-20px;
+            display: none;
+        }
+
+        .content.active {
+            display: block
+        }
+
+        .content li {
+            width: 200px;
+            border: 1px solid #eee;
+            float: left;
+            margin-top: 20px;
+            margin-left: 20px;
+            padding: 10px 20px;
+            text-align: center;
+            position: relative;
+            background: #fff;
+        }
+
+        .content li img {
+            width: 130px;
+            height: 130px;
+        }
+
+        .content li p {
+            height: 36px;
+            overflow: hidden;
+            line-height: 18px;
+            text-align: left;
+        }
+
+        .content li span {
+            color: #c81623;
+            text-align: left;
+            display: block;
+        }
+
+        .content li .cover {
+            position: absolute;
+            background: rgba(0, 0, 0, .3);
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            display: none;
+        }
+
+        .content li.active .cover {
+            display: block;
+        }
+
+        .cover .btn {
+            padding: 10px 15px;
+            background: #fff;
+            border: 1px solid #c81623;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 5px;
+            color: #c81623
+        }
+       
+    </style>
+    <script>
+        $(function () {
+            $('.tab li').click(function () {
+                var $this = $(this)
+                var index = $this.index()
+                $this.addClass('active').siblings().removeClass('active')
+                $this.parents('.model').find('.content').eq(index).addClass('active').siblings().removeClass('active')
+            })
+            $('.content li').mouseover(function () {
+                $(this).addClass('active')
+            })
+            $('.content li').mouseout(function () {
+                $(this).removeClass('active')
+            })
+        })
+    </script>
+</head>
+
+<body>
+    <div class="model">
+        <div class="tab-ct clear">
+            <ul class="tab clear">
+                <li class="active"><a href="javascript:void(0)">热门</a></li>
+                <li><a href="javascript:void(0)">珠宝首饰</a></li>
+                <li><a href="javascript:void(0)">奢侈品</a></li>
+            </ul>
+        </div>
+        <div class="content-k">
+            <ul class="content active clear">
+                <li>
+                    <div class="cover"><a href="" class="btn">立即抢购</a></div>
+                    <img src="https://ooo.0o0.ooo/2017/07/08/596052a71dfe9.jpg" alt="项链">
+                    <p>爱喜珠宝 黄金吊坠 3d硬足金 纯金吊坠 米奇米妮项坠</p>
+                    <span>￥699.00</span>
+
+                </li>
+                <li>
+                    <div class="cover"><a href="" class="btn">立即抢购</a></div>
+                    <img src="https://ooo.0o0.ooo/2017/07/08/596052a71dfe9.jpg" alt="项链">
+                    <p>爱喜珠宝 黄金吊坠 3d硬足金 纯金吊坠 米奇米妮项坠</p>
+                    <span>￥699.00</span>
+                </li>
+                <li>
+                    <div class="cover"><a href="" class="btn">立即抢购</a></div>
+                    <img src="https://ooo.0o0.ooo/2017/07/08/596052a71dfe9.jpg" alt="项链">
+                    <p>爱喜珠宝 黄金吊坠 3d硬足金 纯金吊坠 米奇米妮项坠</p>
+                    <span>￥699.00</span>
+                </li>
+                <li>
+                    <div class="cover"><a href="" class="btn">立即抢购</a></div>
+                    <img src="https://ooo.0o0.ooo/2017/07/08/596052a71dfe9.jpg" alt="项链">
+                    <p>爱喜珠宝 黄金吊坠 3d硬足金 纯金吊坠 米奇米妮项坠</p>
+                    <span>￥699.00</span>
+
+                </li>
+                <li>
+                    <div class="cover"><a href="" class="btn">立即抢购</a></div>
+                    <img src="https://ooo.0o0.ooo/2017/07/08/596052a71dfe9.jpg" alt="项链">
+                    <p>爱喜珠宝 黄金吊坠 3d硬足金 纯金吊坠 米奇米妮项坠</p>
+                    <span>￥699.00</span>
+                </li>
+                <li>
+                    <div class="cover"><a href="" class="btn">立即抢购</a></div>
+                    <img src="https://ooo.0o0.ooo/2017/07/08/596052a71dfe9.jpg" alt="项链">
+                    <p>爱喜珠宝 黄金吊坠 3d硬足金 纯金吊坠 米奇米妮项坠</p>
+                    <span>￥699.00</span>
+                </li>
+            </ul>
+            <ul class="content clear">
+                <li>
+                    <div class="cover active"><a href="" class="btn">立即抢购</a></div>
+                    <img src="https://ooo.0o0.ooo/2017/07/08/596052a71dfe4.jpg" alt="项链">
+                    <p>爱喜珠宝 黄金吊坠 3d硬足金 纯金吊坠 米奇米妮项坠</p>
+                    <span>￥699.00</span>
+
+                </li>
+                <li>
+                    <div class="cover"><a href="" class="btn">立即抢购</a></div>
+                    <img src="https://ooo.0o0.ooo/2017/07/08/596052a71dfe4.jpg" alt="项链">
+                    <p>爱喜珠宝 黄金吊坠 3d硬足金 纯金吊坠 米奇米妮项坠</p>
+                    <span>￥699.00</span>
+                </li>
+                <li>
+                    <div class="cover"><a href="" class="btn">立即抢购</a></div>
+                    <img src="https://ooo.0o0.ooo/2017/07/08/596052a71dfe4.jpg" alt="项链">
+                    <p>爱喜珠宝 黄金吊坠 3d硬足金 纯金吊坠 米奇米妮项坠</p>
+                    <span>￥699.00</span>
+                </li>
+                <li>
+                    <div class="cover active"><a href="" class="btn">立即抢购</a></div>
+                    <img src="https://ooo.0o0.ooo/2017/07/08/596052a71dfe4.jpg" alt="项链">
+                    <p>爱喜珠宝 黄金吊坠 3d硬足金 纯金吊坠 米奇米妮项坠</p>
+                    <span>￥699.00</span>
+
+                </li>
+                <li>
+                    <div class="cover"><a href="" class="btn">立即抢购</a></div>
+                    <img src="https://ooo.0o0.ooo/2017/07/08/596052a71dfe4.jpg" alt="项链">
+                    <p>爱喜珠宝 黄金吊坠 3d硬足金 纯金吊坠 米奇米妮项坠</p>
+                    <span>￥699.00</span>
+                </li>
+                <li>
+                    <div class="cover"><a href="" class="btn">立即抢购</a></div>
+                    <img src="https://ooo.0o0.ooo/2017/07/08/596052a71dfe4.jpg" alt="项链">
+                    <p>爱喜珠宝 黄金吊坠 3d硬足金 纯金吊坠 米奇米妮项坠</p>
+                    <span>￥699.00</span>
+                </li>
+              </ul>
+              <ul class="content clear">
+                <li>
+                    <div class="cover active"><a href="" class="btn">立即抢购</a></div>
+                    <img src="https://ooo.0o0.ooo/2017/07/08/596052a71f0b6.jpg" alt="项链">
+                    <p>爱喜珠宝 黄金吊坠 3d硬足金 纯金吊坠 米奇米妮项坠</p>
+                    <span>￥699.00</span>
+
+                </li>
+                <li>
+                    <div class="cover"><a href="" class="btn">立即抢购</a></div>
+                    <img src="https://ooo.0o0.ooo/2017/07/08/596052a71f0b6.jpg" alt="项链">
+                    <p>爱喜珠宝 黄金吊坠 3d硬足金 纯金吊坠 米奇米妮项坠</p>
+                    <span>￥699.00</span>
+                </li>
+                <li>
+                    <div class="cover"><a href="" class="btn">立即抢购</a></div>
+                    <img src="https://ooo.0o0.ooo/2017/07/08/596052a71f0b6.jpg" alt="项链">
+                    <p>爱喜珠宝 黄金吊坠 3d硬足金 纯金吊坠 米奇米妮项坠</p>
+                    <span>￥699.00</span>
+                </li>
+                <li>
+                    <div class="cover active"><a href="" class="btn">立即抢购</a></div>
+                    <img src="https://ooo.0o0.ooo/2017/07/08/596052a71f0b6.jpg" alt="项链">
+                    <p>爱喜珠宝 黄金吊坠 3d硬足金 纯金吊坠 米奇米妮项坠</p>
+                    <span>￥699.00</span>
+
+                </li>
+                <li>
+                    <div class="cover"><a href="" class="btn">立即抢购</a></div>
+                    <img src="https://ooo.0o0.ooo/2017/07/08/596052a71f0b6.jpg" alt="项链">
+                    <p>爱喜珠宝 黄金吊坠 3d硬足金 纯金吊坠 米奇米妮项坠</p>
+                    <span>￥699.00</span>
+                </li>
+                <li>
+                    <div class="cover"><a href="" class="btn">立即抢购</a></div>
+                    <img src="https://ooo.0o0.ooo/2017/07/08/596052a71f0b6.jpg" alt="项链">
+                    <p>爱喜珠宝 黄金吊坠 3d硬足金 纯金吊坠 米奇米妮项坠</p>
+                    <span>￥699.00</span>
+                </li>
+            </ul>
+        </div>
+       
+    </div>
+    <div class="model">
+        <div class="tab-ct clear">
+            <ul class="tab clear">
+                <li class="active"><a href="javascript:void(0)">热门2</a></li>
+                <li><a href="javascript:void(0)">珠宝首饰2</a></li>
+                <li><a href="javascript:void(0)">奢侈品2</a></li>
+            </ul>
+        </div>
+        <div class="content-k">
+            <ul class="content active clear">
+                <li>
+                    <div class="cover"><a href="" class="btn">立即抢购</a></div>
+                    <img src="https://ooo.0o0.ooo/2017/07/08/596052a71dfe9.jpg" alt="项链">
+                    <p>爱喜珠宝 黄金吊坠 3d硬足金 纯金吊坠 米奇米妮项坠</p>
+                    <span>￥699.00</span>
+
+                </li>
+                <li>
+                    <div class="cover"><a href="" class="btn">立即抢购</a></div>
+                    <img src="https://ooo.0o0.ooo/2017/07/08/596052a71dfe9.jpg" alt="项链">
+                    <p>爱喜珠宝 黄金吊坠 3d硬足金 纯金吊坠 米奇米妮项坠</p>
+                    <span>￥699.00</span>
+                </li>
+                <li>
+                    <div class="cover"><a href="" class="btn">立即抢购</a></div>
+                    <img src="https://ooo.0o0.ooo/2017/07/08/596052a71dfe9.jpg" alt="项链">
+                    <p>爱喜珠宝 黄金吊坠 3d硬足金 纯金吊坠 米奇米妮项坠</p>
+                    <span>￥699.00</span>
+                </li>
+                <li>
+                    <div class="cover"><a href="" class="btn">立即抢购</a></div>
+                    <img src="https://ooo.0o0.ooo/2017/07/08/596052a71dfe9.jpg" alt="项链">
+                    <p>爱喜珠宝 黄金吊坠 3d硬足金 纯金吊坠 米奇米妮项坠</p>
+                    <span>￥699.00</span>
+
+                </li>
+                <li>
+                    <div class="cover"><a href="" class="btn">立即抢购</a></div>
+                    <img src="https://ooo.0o0.ooo/2017/07/08/596052a71dfe9.jpg" alt="项链">
+                    <p>爱喜珠宝 黄金吊坠 3d硬足金 纯金吊坠 米奇米妮项坠</p>
+                    <span>￥699.00</span>
+                </li>
+                <li>
+                    <div class="cover"><a href="" class="btn">立即抢购</a></div>
+                    <img src="https://ooo.0o0.ooo/2017/07/08/596052a71dfe9.jpg" alt="项链">
+                    <p>爱喜珠宝 黄金吊坠 3d硬足金 纯金吊坠 米奇米妮项坠</p>
+                    <span>￥699.00</span>
+                </li>
+            </ul>
+            <ul class="content clear">
+                <li>
+                    <div class="cover active"><a href="" class="btn">立即抢购</a></div>
+                    <img src="https://ooo.0o0.ooo/2017/07/08/596052a71dfe4.jpg" alt="项链">
+                    <p>爱喜珠宝 黄金吊坠 3d硬足金 纯金吊坠 米奇米妮项坠</p>
+                    <span>￥699.00</span>
+
+                </li>
+                <li>
+                    <div class="cover"><a href="" class="btn">立即抢购</a></div>
+                    <img src="https://ooo.0o0.ooo/2017/07/08/596052a71dfe4.jpg" alt="项链">
+                    <p>爱喜珠宝 黄金吊坠 3d硬足金 纯金吊坠 米奇米妮项坠</p>
+                    <span>￥699.00</span>
+                </li>
+                <li>
+                    <div class="cover"><a href="" class="btn">立即抢购</a></div>
+                    <img src="https://ooo.0o0.ooo/2017/07/08/596052a71dfe4.jpg" alt="项链">
+                    <p>爱喜珠宝 黄金吊坠 3d硬足金 纯金吊坠 米奇米妮项坠</p>
+                    <span>￥699.00</span>
+                </li>
+                <li>
+                    <div class="cover active"><a href="" class="btn">立即抢购</a></div>
+                    <img src="https://ooo.0o0.ooo/2017/07/08/596052a71dfe4.jpg" alt="项链">
+                    <p>爱喜珠宝 黄金吊坠 3d硬足金 纯金吊坠 米奇米妮项坠</p>
+                    <span>￥699.00</span>
+
+                </li>
+                <li>
+                    <div class="cover"><a href="" class="btn">立即抢购</a></div>
+                    <img src="https://ooo.0o0.ooo/2017/07/08/596052a71dfe4.jpg" alt="项链">
+                    <p>爱喜珠宝 黄金吊坠 3d硬足金 纯金吊坠 米奇米妮项坠</p>
+                    <span>￥699.00</span>
+                </li>
+                <li>
+                    <div class="cover"><a href="" class="btn">立即抢购</a></div>
+                    <img src="https://ooo.0o0.ooo/2017/07/08/596052a71dfe4.jpg" alt="项链">
+                    <p>爱喜珠宝 黄金吊坠 3d硬足金 纯金吊坠 米奇米妮项坠</p>
+                    <span>￥699.00</span>
+                </li>
+              </ul>
+              <ul class="content clear">
+                <li>
+                    <div class="cover active"><a href="" class="btn">立即抢购</a></div>
+                    <img src="https://ooo.0o0.ooo/2017/07/08/596052a71f0b6.jpg" alt="项链">
+                    <p>爱喜珠宝 黄金吊坠 3d硬足金 纯金吊坠 米奇米妮项坠</p>
+                    <span>￥699.00</span>
+
+                </li>
+                <li>
+                    <div class="cover"><a href="" class="btn">立即抢购</a></div>
+                    <img src="https://ooo.0o0.ooo/2017/07/08/596052a71f0b6.jpg" alt="项链">
+                    <p>爱喜珠宝 黄金吊坠 3d硬足金 纯金吊坠 米奇米妮项坠</p>
+                    <span>￥699.00</span>
+                </li>
+                <li>
+                    <div class="cover"><a href="" class="btn">立即抢购</a></div>
+                    <img src="https://ooo.0o0.ooo/2017/07/08/596052a71f0b6.jpg" alt="项链">
+                    <p>爱喜珠宝 黄金吊坠 3d硬足金 纯金吊坠 米奇米妮项坠</p>
+                    <span>￥699.00</span>
+                </li>
+                <li>
+                    <div class="cover active"><a href="" class="btn">立即抢购</a></div>
+                    <img src="https://ooo.0o0.ooo/2017/07/08/596052a71f0b6.jpg" alt="项链">
+                    <p>爱喜珠宝 黄金吊坠 3d硬足金 纯金吊坠 米奇米妮项坠</p>
+                    <span>￥699.00</span>
+
+                </li>
+                <li>
+                    <div class="cover"><a href="" class="btn">立即抢购</a></div>
+                    <img src="https://ooo.0o0.ooo/2017/07/08/596052a71f0b6.jpg" alt="项链">
+                    <p>爱喜珠宝 黄金吊坠 3d硬足金 纯金吊坠 米奇米妮项坠</p>
+                    <span>￥699.00</span>
+                </li>
+                <li>
+                    <div class="cover"><a href="" class="btn">立即抢购</a></div>
+                    <img src="https://ooo.0o0.ooo/2017/07/08/596052a71f0b6.jpg" alt="项链">
+                    <p>爱喜珠宝 黄金吊坠 3d硬足金 纯金吊坠 米奇米妮项坠</p>
+                    <span>￥699.00</span>
+                </li>
+            </ul>
+        </div>
+       
+    </div>
+</body>
+
+</html>
