@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>图片懒加载</title>
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+  <style>
+    .list img{
+      width:458px;
+      padding:1px;
+      border:1px solid #ccc;
+      margin:10px;
+    }
+   </style>
+</head>
+<body>
+<div class="list">
+  <img src="images/loading.gif" data-src="images/1.jpg" alt="">
+  <img src="images/loading.gif" data-src="images/2.jpg" alt="">
+  <img src="images/loading.gif" data-src="images/3.jpg" alt="">
+  <img src="images/loading.gif" data-src="images/4.jpg" alt="">
+  <img src="images/loading.gif" data-src="images/5.jpg" alt="">
+  <img src="images/loading.gif" data-src="images/6.jpg" alt="">
+  <img src="images/loading.gif" data-src="images/7.jpg" alt="">
+  <img src="images/loading.gif" data-src="images/8.jpg" alt="">
+  <img src="images/loading.gif" data-src="images/9.jpg" alt="">
+  <imgsrc="images/loading.gif" data-src="images/10.jpg" alt="">
+  <img src="images/loading.gif" data-src="images/1.jpg" alt="">
+  <img src="images/loading.gif" data-src="images/2.jpg" alt="">
+  <img src="images/loading.gif" data-src="images/3.jpg" alt="">
+  <img src="images/loading.gif" data-src="images/4.jpg" alt="">
+  <img src="images/loading.gif" data-src="images/5.jpg" alt="">
+  <img src="images/loading.gif" data-src="images/6.jpg" alt="">
+  <img src="images/loading.gif" data-src="images/7.jpg" alt="">
+  <img src="images/loading.gif" data-src="images/8.jpg" alt="">
+  <img src="images/loading.gif" data-src="images/9.jpg" alt="">
+  <imgsrc="images/loading.gif" data-src="images/10.jpg" alt="">
+  <img src="images/loading.gif" data-src="images/1.jpg" alt="">
+  <img src="images/loading.gif" data-src="images/2.jpg" alt="">
+  <img src="images/loading.gif" data-src="images/3.jpg" alt="">
+  <img src="images/loading.gif" data-src="images/4.jpg" alt="">
+  <img src="images/loading.gif" data-src="images/5.jpg" alt="">
+  <img src="images/loading.gif" data-src="images/6.jpg" alt="">
+  <img src="images/loading.gif" data-src="images/7.jpg" alt="">
+  <img src="images/loading.gif" data-src="images/8.jpg" alt="">
+  <img src="images/loading.gif" data-src="images/9.jpg" alt="">
+  <imgsrc="images/loading.gif" data-src="images/10.jpg" alt="">
+  <img src="images/loading.gif" data-src="images/1.jpg" alt="">
+  <img src="images/loading.gif" data-src="images/2.jpg" alt="">
+  <img src="images/loading.gif" data-src="images/3.jpg" alt="">
+  <img src="images/loading.gif" data-src="images/4.jpg" alt="">
+  <img src="images/loading.gif" data-src="images/5.jpg" alt="">
+  <img src="images/loading.gif" data-src="images/6.jpg" alt="">
+  <img src="images/loading.gif" data-src="images/7.jpg" alt="">
+  <img src="images/loading.gif" data-src="images/8.jpg" alt="">
+  <img src="images/loading.gif" data-src="images/9.jpg" alt="">
+  <imgsrc="images/loading.gif" data-src="images/10.jpg" alt="">
+</div>
+
+ 
+<script>
+  lazyRender()
+  var clock
+  $(window).on('scroll',function(){
+
+    if(clock){
+      clearTimeout(clock)
+    }
+    clock=setTimeout(function(){
+      lazyRender()
+      console.log('hello')
+    },300)
+   
+  })
+  function lazyRender(){
+   $('.list img').each(function(){
+      if( isShow($(this)) && !isLoaded($(this)) ){
+        loadImg($(this))
+      }
+    })
+  }
+  function isShow($img){
+    var offsetHeight = $img.offset().top
+    var windowHeight = $(window).height()
+    var scrollTop = $(window).scrollTop() 
+    
+    if(offsetHeight > scrollTop && offsetHeight < windowHeight+scrollTop){
+      return true
+    }
+      return false
+  }
+  function isLoaded($img){
+    return $img.attr('data-src') === $img.attr('src')
+  }
+  function loadImg($img){
+    $img.attr('src',$img.attr('data-src'))
+  }
+
+</script>
+ 
+</body>
+</html>
