@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="//code.jquery.com/jquery-2.2.4.min.js"></script>
+    <title>图片轮播</title>
+    <style>
+        body,html{
+            margin:0;
+            padding:0;
+            font-family: "宋体",Arial, Helvetica, sans-serif;
+            font-size: 14px;
+            margin: 8px;
+        }
+        ul,li{
+            margin:0;
+            padding:0;
+            list-style: none
+        }
+        a{
+            text-decoration: none;
+        }
+        .carousel{
+            position:relative;
+            width:458px;
+            height:300px;
+            overflow: hidden;
+            margin: 10px auto
+        }
+        .carousel ul.img-ct{
+            position: relative;
+            
+        }
+        .carousel ul.img-ct li{
+            position: absolute;
+            display: none
+        }
+        .carousel ul.img-ct li img{
+            width:458px;
+            height:300px;  
+        }
+        .carousel .arr{
+            position: absolute;
+            width:30px;
+            height:30px;
+            border-radius: 50%;
+            border:1px solid #fff;
+            top:50%;
+            margin-top:-15px;
+            color:#fff;
+            text-align: center;
+            line-height: 30px;
+            font-size:16px;
+        }
+        .carousel .pre{
+            left:10px;
+                   
+        }
+        .carousel .next{
+            right:10px;        
+        }
+        .carousel .arr:hover{
+            opacity: 0.8
+        }
+       	.carousel .bullet {
+		position: absolute;
+		bottom: 10px;
+		width: 100%;
+		font-size: 0;
+		text-align: center;
+        }
+        .carousel .bullet >li{
+            display: inline-block;
+            width: 30px;
+            height: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin: 0 3px;
+            cursor: pointer;
+        }
+        .carousel .bullet >li.active{
+            background-color: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div class="carousel">
+        <ul class="img-ct">
+            <li data-id="0" style="display: block;"><a href="#"><img src="images/11.jpg"></a></li>
+            <li data-id="1" style="display: none"><a href="#"><img src="images/22.jpg"></a></li>
+            <li data-id="2" style="display: none;"><a href="#"><img src="images/33.jpg"></a></li>
+            <li data-id="3" style="display: none"><a href="#"><img src="images/44.jpg"></a></li>
+        </ul>
+        <a href="#" class="pre arr">&lt;</a>
+        <a href="#" class="next arr">&gt;</a>
+        <ul class="bullet">
+            <li class="active"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div> 
+    <script>
+        var $imgCt = $('.carousel .img-ct')
+        var $items = $imgCt.children()
+        var $preBtn = $('.carousel .pre')
+        var $nextBtn = $('.carousel .next')
+        var $bullet = $('.carousel .bullet')
+        var imgCount =$items.length
+        var imgWidth =$items.width()
+        var curIndex = 0
+
+        $preBtn.click(function(){
+            playPre()
+        })
+        $nextBtn.click(function(){
+            playNext()
+        })
+        $bullet.find('li').click(function(){
+            var index =$(this).index()
+            playStart(index)
+        })
+        playStart(0)
+        autoPlay()
+        function playPre(){
+            playStart((imgCount+curIndex-1)%imgCount)
+        }
+
+        function playNext(){
+            playStart((curIndex+1)%imgCount)
+        }
+        			
+        function playStart(index){
+            $items.eq(curIndex).fadeOut(500)
+            $items.eq(index).fadeIn(500)
+            curIndex = index
+            setBullet()
+        }
+        function setBullet(){
+           $bullet.children().removeClass('active').eq(curIndex).addClass('active');
+        }
+        function autoPlay(){
+            clock = setInterval(function(){
+                playNext();
+            }, 2000);	
+        }
+    </script>  
+</body>
+</html>
