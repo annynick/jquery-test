@@ -22,12 +22,17 @@
         a{
             text-decoration: none;
         }
+        .wrap{
+            width:906px;
+            margin:0 auto;
+        }
         #pic-ct{
             position: relative
         }
         #pic-ct .item{
             position: absolute;
             padding: 0 0 10px 0;
+            width: 280px;
             margin: 10px;
             border: 1px solid #DFDFDF;
             background: #FFF;
@@ -65,14 +70,13 @@
     <div class="wrap">
         <div class="ct-waterfall">
             <ul id="pic-ct">
-                <!--<li class="item">
+                <li class="item hide">
                     <a href="#">
                         <img src="https://i.loli.net/2017/07/14/59683defc3242.jpg" alt="">
                     </a>
                     <h3>最强高温迟迟未“退烧” 多地电网负荷破纪录</h3>
                     <p>中新网北京7月14日电 今天，大范围的高温天气将继续施展“火力”，按照气象部门的预测，未来几天，这轮今年来最强的高温天气依旧不会有明显“退烧”。</p>
-                </li>-->
-                <li class="item hide"></li>
+                </li>
             </ul>
             <div id="load">我隐身了</div>
         </div>
@@ -81,7 +85,7 @@
     // 1.获取数据
     // 2.将数据变为DOM，以瀑布流的方式放到页面上
     // 3.将页面滚动到底部时，执行-->1
-    var pageCount = 20
+    var pageCount = 10
     var curPage = 1
     var colArr = []
     var nodeWidth = $('.item').outerWidth(true)
