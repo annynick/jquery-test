@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>瀑布流懒加载jsonp</title>
-    <script src="//code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="http://code.jquery.com/jquery-2.2.4.min.js"></script>
     <style>
         body,html{
             margin:0;
@@ -21,6 +21,10 @@
         }
         a{
             text-decoration: none;
+        }
+        .wrap{
+            width:906px;
+            margin:0 auto;
         }
         #pic-ct{
             position: relative
@@ -66,14 +70,13 @@
     <div class="wrap">
         <div class="ct-waterfall">
             <ul id="pic-ct">
-                <!--<li class="item">
+                <li class="item hide">
                     <a href="#">
                         <img src="https://i.loli.net/2017/07/14/59683defc3242.jpg" alt="">
                     </a>
                     <h3>最强高温迟迟未“退烧” 多地电网负荷破纪录</h3>
                     <p>中新网北京7月14日电 今天，大范围的高温天气将继续施展“火力”，按照气象部门的预测，未来几天，这轮今年来最强的高温天气依旧不会有明显“退烧”。</p>
-                </li>-->
-                <li class="item hide"></li>
+                </li>
             </ul>
             <div id="load">我隐身了</div>
         </div>
